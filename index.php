@@ -60,37 +60,76 @@ $hotels = [
 
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <title>PHP Hotel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+<head>
+    <title>PHP Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-    <h1>Lista degli Hotel</h1>
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
-    <ul>
-        <?php foreach($hotels as $hotel): 
+<body>
+
+    <!-- <h1>Lista degli Hotel</h1> -->
+
+    <!-- <ul>
+        <?php foreach ($hotels as $hotel) :
             $parking_available = ($hotel['parking'] === true) ? 'Parcheggio disponibile' : 'Parcheggio non disponibile';
-            ?>
-        <li>
-            <h3><?php echo $hotel['name'] ?></h3>
-            <p><?php echo $hotel['description'] ?>:</p>
-            <p><?php echo $parking_available ?></p>
-            <p><?php echo $hotel['vote'] ?></p>
-            <p><?php echo $hotel['distance_to_center'] ?></p>
-        </li>
+        ?>
+            <li>
+                <h3><?php echo $hotel['name'] ?></h3>
+                <p><?php echo $hotel['description'] ?>:</p>
+                <p><?php echo $parking_available ?></p>
+                <p><?php echo $hotel['vote'] ?></p>
+                <p><?php echo $hotel['distance_to_center'] ?></p>
+            </li>
         <?php endforeach; ?>
-    </ul>
-    
-    </body>
+    </ul> -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 m-auto ">
+
+                <h1 class="mt-5 text-center ">Lista degli Hotel</h1>
+
+                <table class="table my-5">
+                    <?php foreach ($hotels as $hotel) :
+                        $parking_available = ($hotel['parking'] === true) ? 'Parcheggio disponibile' : 'Parcheggio non disponibile';
+                         ?>
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <h2 class=" mt-5"><?php echo $hotel['name'] ?></h2>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th><?php echo $hotel['description'] ?>:</th>
+                        </tr>
+                        <tr>
+                            <td><?php echo $parking_available ?></td>
+                        </tr>
+                        <tr>
+                            <td>Voto: <?php echo $hotel['vote'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Distanza dal centro: <?php echo $hotel['distance_to_center'] ?> Km</td>
+                        </tr>
+                    </tbody>
+                    <?php endforeach; ?>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>
