@@ -64,6 +64,14 @@ $hotels = [
         <title>PHP Hotel</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
@@ -71,11 +79,13 @@ $hotels = [
     <h1>Lista degli Hotel</h1>
 
     <ul>
-        <?php foreach($hotels as $hotel): ?>
+        <?php foreach($hotels as $hotel): 
+            $parking_available = ($hotel['parking'] === true) ? 'Parcheggio disponibile' : 'Parcheggio non disponibile';
+            ?>
         <li>
             <h3><?php echo $hotel['name'] ?></h3>
             <p><?php echo $hotel['description'] ?>:</p>
-            <p><?php echo $hotel['parking'] ?></p>
+            <p><?php echo $parking_available ?></p>
             <p><?php echo $hotel['vote'] ?></p>
             <p><?php echo $hotel['distance_to_center'] ?></p>
         </li>
