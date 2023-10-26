@@ -68,7 +68,19 @@ $hotels = [
     </head>
     <body>
 
-    <h1>ciao</h1>
+    <h1>Lista degli Hotel</h1>
+
+    <ul>
+        <?php foreach($hotels as $hotel): ?>
+        <li>
+            <h3><?php echo $hotel['name'] ?></h3>
+            <p><?php echo $hotel['description'] ?>:</p>
+            <p><?php echo $hotel['parking'] ?></p>
+            <p><?php echo $hotel['vote'] ?></p>
+            <p><?php echo $hotel['distance_to_center'] ?></p>
+        </li>
+        <?php endforeach; ?>
+    </ul>
     
     </body>
 </html>
